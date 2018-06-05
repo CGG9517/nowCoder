@@ -7,9 +7,18 @@ package interveiw.singleton;
  * @Date: 2018/6/5
  */
 public class Singleton {
+    private volatile static Singleton singleton = new Singleton();
     private Singleton(){};
-    private static Singleton singleton = new Singleton();
     public static Singleton newInstance(){
+        /*
+         * 双重锁检验
+         */
+        if (singleton == null) {
+            synchronized (Singleton.class) {
+                if (singleton == null)
+                    singleton = new Singleton();
+            }
+        }
         return singleton;
     }
 }
