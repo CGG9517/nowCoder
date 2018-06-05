@@ -7,7 +7,7 @@ package interveiw.singleton;
  * @Date: 2018/6/5
  */
 public class Singleton {
-    private volatile static Singleton singleton = new Singleton();
+    private volatile static Singleton singleton;
     private Singleton(){};
     public static Singleton newInstance(){
         /*
